@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import {
   Table,
   TableBody,
@@ -50,6 +52,8 @@ const invoices = [
 ];
 
 function PostForm() {
+  const router = useRouter();
+
   return (
     <Table id="post">
       <TableCaption>Harga bisa berubah kapan saja.</TableCaption>
@@ -99,7 +103,9 @@ function PostForm() {
                   <AlertDialogFooter>
                     <AlertDialogCancel>Batal</AlertDialogCancel>
                     <AlertDialogAction className="hover:bg-blue-500 hover:text-white">
-                      Lanjutkan
+                      <button onClick={() => router.push("#")}>
+                        Lanjutkan
+                      </button>
                     </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
